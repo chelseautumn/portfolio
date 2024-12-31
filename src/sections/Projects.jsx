@@ -17,7 +17,7 @@ const Bounce = () => {
   return (
     <div className="bounce">
       <video src="/bounce_demo.MOV" autoPlay loop playsInline />
-      <p>An iOS arcade game built with Swift and published to the App Store featuring monetized ads, Game Center leaderboard, and achievements.</p>
+      <p>An iOS arcade game built with Swift and published to the App Store featuring monetized ads, leaderboard, and achievements.</p>
     </div>
   );
 }
