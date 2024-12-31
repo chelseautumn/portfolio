@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import Card from "../components/Card.jsx";
 import "../styles/Projects.css";
 import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
@@ -6,9 +6,11 @@ import { FidgetSpinner } from "react-loader-spinner";
 
 function Projects() {
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const Portfolio = () => {
     return (
-      <div className="portfolio">
+      <div className="portfolio" style={{ display: currentIndex === 0 ? "flex" : "none" }}>
         <img src="/folio.png" alt="portfolio" width="85%"/>
         <p>A React app showcasing my work, including a dynamic CSS grid layout and interactive designs. Built with Vite and hosted via Github Pages.</p>
       </div>
@@ -17,22 +19,22 @@ function Projects() {
   
   const Bounce = () => {
     return (
-      <div className="bounce">
-        <video src="/bounce_demo.MOV" autoPlay loop playsInline />
-        <p>An iOS arcade game built with Swift and published to the App Store featuring monetized ads, leaderboard, and achievements.</p>
+      <div className="bounce" style={{ display: currentIndex === 1 ? "flex" : "none" }}>
+        <video  src="/bounce_demo.MOV" autoPlay loop playsInline />
+        <p> An iOS arcade game built with Swift and published to the App Store featuring monetized ads, leaderboard, and achievements.</p>
       </div>
     );
-  }
+  };
   
   const Loader = () => {
     return (
-      <div className="spinner">
+      <div className="spinner" style={{ display: currentIndex === 2 ? "flex" : "none" }}>
         <FidgetSpinner height={200} width={440} backgroundColor="var(--highlight-color)" ballColors={["var(--text-color)", "var(--text-color)", "var(--text-color)"]}/>
       </div>
     );
-  }
+  };
 
-  const projects = useMemo(() => [
+  const projects = [
     {
       title: "This Portfolio",
       project: <Portfolio />,
@@ -45,9 +47,7 @@ function Projects() {
       title: "work in progress",
       project: <Loader />,
     }
-  ], [Portfolio, Bounce, Loader]);
-
-  const [currentIndex, setCurrentIndex] = useState(0);
+  ];
 
   const nextProject = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
@@ -57,7 +57,7 @@ function Projects() {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
   };
 
-  const { title, project } = projects[currentIndex];
+  const { title } = projects[currentIndex];
 
   return (
     <Card title="some of my projects" gridArea="projects" minHeight="400px" >
@@ -70,7 +70,7 @@ function Projects() {
           <MdNavigateNext size={32}/>
         </button>
       </div>
-      {project}
+      {projects.map((project) => project.project)}
     </Card>
   );
 }
