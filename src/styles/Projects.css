@@ -12,10 +12,25 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
+
+    img {
+      max-width: 312px;
+    }
   }
 
   .bounce {
     display: flex;
+    width: 100%;
+
+    video {
+      width: 100%;
+      max-height: 300px;
+      padding: 2px 12px;
+    }
+
+    p {
+      padding: 2px 12px;
+    }
   }
 
   .spinner {

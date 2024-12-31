@@ -7,17 +7,16 @@ import { FidgetSpinner } from "react-loader-spinner";
 const Portfolio = () => {
   return (
     <div className="portfolio">
-      <img src="/folio.png" alt="portfolio" style={{ maxWidth: "320px" }} width={"85%"}/>
-      <p>A React app showcasing my work, including a dynamic CSS grid layout and interactive designs. Built with Vite and hosted via Netlify.</p>
+      <img src="/folio.png" alt="portfolio" width="85%"/>
+      <p>A React app showcasing my work, including a dynamic CSS grid layout and interactive designs. Built with Vite and hosted via Github Pages.</p>
     </div>
   );
 };
 
 const Bounce = () => {
-  // TODO: add video
   return (
     <div className="bounce">
-      <video src="/bounce-demo.mp4" width="50%" autoPlay loop />
+      <video src="/bounce_demo.MOV" autoPlay loop playsInline />
       <p>An iOS arcade game built with Swift and published to the App Store featuring monetized ads, Game Center leaderboard, and achievements.</p>
     </div>
   );
@@ -26,7 +25,7 @@ const Bounce = () => {
 const Loader = () => {
   return (
     <div className="spinner">
-      <FidgetSpinner wrapperStyle={{paddingTop: "24px", marginBottom: "32px"}} height={200} width={440} backgroundColor="var(--highlight-color)" ballColors={["var(--text-color)", "var(--text-color)", "var(--text-color)"]}/>
+      <FidgetSpinner height={200} width={440} backgroundColor="var(--highlight-color)" ballColors={["var(--text-color)", "var(--text-color)", "var(--text-color)"]}/>
     </div>
   );
 }
@@ -41,7 +40,7 @@ function Projects() {
       project: <Bounce />,
     },
     {
-      title: "work in progress...",
+      title: "work in progress",
       project: <Loader />,
     }
   ];
