@@ -1,6 +1,6 @@
 import Card from "../components/Card.jsx";
 import "../styles/Settings.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CiLight, CiDark } from "react-icons/ci";
 import { IoIosColorPalette, IoIosVolumeHigh, IoIosVolumeOff } from "react-icons/io";
 import { CgSmile, CgSmileMouthOpen } from "react-icons/cg";
@@ -22,8 +22,18 @@ const colors = [
   "#952CFF", // purple
 ]
 
-  const toggleDarkMode = () => {
-    setDarkMode((prevMode) => !prevMode);
+// Load settings from localStorage on mount
+useEffect(() => {
+  const savedDarkMode = JSON.parse(localStorage.getItem("darkMode"));
+  const savedSoundEnabled = JSON.parse(localStorage.getItem("soundEnabled"));
+  const savedColorIndex = JSON.parse(localStorage.getItem("colorIndex"));
+
+  if (savedDarkMode !== null) setDarkMode(savedDarkMode);
+  if (savedSoundEnabled !== null) setSoundEnabled(savedSoundEnabled);
+  if (savedColorIndex !== null) setColorIndex(savedColorIndex);
+}, []);
+
+useEffect(() => {
     document.documentElement.style.setProperty(
       "--background-color",
       darkMode ? "#fff" : "#1e1e1e"
@@ -36,14 +46,24 @@ const colors = [
       "--card-color",
       darkMode ? "#f5f5f5" : "#242424"
     );
+}, [darkMode]);
+
+useEffect(() => {
+  document.documentElement.style.setProperty(
+    "--highlight-color",
+    colors[colorIndex],
+  );
+}, [colorIndex]);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    localStorage.setItem("darkMode", JSON.stringify(!darkMode));
   };
 
   const toggleColor = () => {
-    setColorIndex((prev) => (prev + 1) % colors.length);
-    document.documentElement.style.setProperty(
-      "--highlight-color",
-      colors[colorIndex],
-    );
+    const index = (colorIndex + 1) % colors.length;
+    setColorIndex(index);
+    localStorage.setItem("colorIndex", JSON.stringify(index));
   }
 
     return (
