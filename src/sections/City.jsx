@@ -12,7 +12,12 @@ function City() {
   const [timeZone, setTimeZone] = useState(CHICAGO_TIMEZONE_OFFSET);
   const [name, setName] = useState(CHICAGO);
   const [temp, setTemp] = useState(null);
+  const [isFahrenheit, setIsFahrenheit] = useState(true);
   const [time, setTime] = useState(new Date().toLocaleTimeString());
+  const [is12Hour, setIs12Hour] = useState(true);
+
+  const units = isFahrenheit ? "imperial" : "metric";
+  const tempLabel = isFahrenheit ? "°F" : "°C";
 
   // alternate between chicago & user's location
   const toggleCity = async () => {
@@ -35,7 +40,7 @@ function City() {
   useEffect(() => {
     const fetchyCity = async () => {
       try {
-        const data = await getWeather(coords.latitude, coords.longitude);
+        const data = await getWeather(coords.latitude, coords.longitude, units);
         setTemp(data.main.temp);
         setTimeZone(data.timezone);
         setName(data.name.toLowerCase());
@@ -44,23 +49,26 @@ function City() {
       }
     };
 fetchyCity();
-  }, [coords]);
+  }, [coords, units]);
 
   useEffect(() => {
-    const updateTime = () => setTime(getTime(timeZone));
+    const updateTime = () => setTime(getTime(timeZone, is12Hour));
     updateTime();
     const interval = setInterval(updateTime, 1000);
     return () => clearInterval(interval);
-  }, [timeZone])
+  }, [timeZone, is12Hour])
 
   return (
     <Card gridArea="chicago" minHeight="60px">
       <div className="city">
         <div>
           <p>currently in</p>
-          <h3 className="title cityName" onClick={toggleCity}>{name}:</h3>
+          <h3 className="title button" onClick={toggleCity}>{name}:</h3>
         </div>
-        <h3 className="stats">{time}<br />{temp !== null && `${temp}°F`}</h3>
+        <div>
+          <h3 className="stats button" onClick={() => setIs12Hour(!is12Hour)}>{time}</h3>
+          {temp !== null && <h3 className="stats button" onClick={() => setIsFahrenheit(!isFahrenheit)}>{temp}{tempLabel}</h3>}
+        </div>
       </div>
     </Card>
   );

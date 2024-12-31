@@ -9,10 +9,11 @@
     }
   }
   
-  .cityName {
-    transition: transform 0.2s ease;
+  .button {
+    transition: transform 0.2s ease, color 0.2s ease;
     &:hover {
       cursor: pointer;
+      color: var(--highlight-color);
       transform: scale(1.1);
     }
   }
