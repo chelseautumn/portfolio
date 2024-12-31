@@ -1,0 +1,20 @@
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .play {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    color: var(--text-color);
+    opacity: 0.2;
+    transition: color 0.2s ease, transform 0.2s ease;
+    &:hover {
+      color: var(--highlight-color);
+      cursor: pointer;
+      transform: scale(1.2);
+     }
+    background-color: transparent;
+  }

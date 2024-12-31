@@ -1,0 +1,61 @@
+.icon {
+  border: 0;
+  background-color: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+  &:hover {
+    transform: scale(1.2);
+    color: var(--highlight-color);
+  }
+}
+
+.grid-container {
+  max-width: 1200px;
+  height: calc(100vh - 32px);
+  margin: 16px auto;
+  display: grid;
+  gap: 20px;
+  grid-template-areas:
+    "welcome welcome about"
+    "links projects about"
+    "contact projects about"
+    "contact projects skills"
+    "contact projects chicago"
+    "contact settings chicago"
+    "legal settings chicago";
+  --min-welcome-height: 100px;
+}
+
+@media (max-width: 1024px) {
+  .grid-container {
+    margin: 16px 8px;
+    height: 100vh;
+    grid-template-areas:
+    "welcome welcome"
+    "about projects"
+    "contact skills"
+    "contact links"
+    "contact chicago"
+    "legal settings";
+    --min-welcome-height: 150px;
+  }
+}
+
+@media (max-width: 732px) {
+  .grid-container {
+    height: 100vh;
+    grid-template-areas:
+      "welcome"
+      "about"
+      "projects"
+      "skills"
+      "links"
+      "contact"
+      "chicago"
+      "settings"
+      "legal";
+    grid-template-columns: 1fr;
+    --min-welcome-height: 200px;
+  }
+}
