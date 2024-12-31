@@ -36,15 +36,15 @@ useEffect(() => {
 useEffect(() => {
     document.documentElement.style.setProperty(
       "--background-color",
-      darkMode ? "#fff" : "#1e1e1e"
+      !darkMode ? "#fff" : "#1e1e1e"
     );
     document.documentElement.style.setProperty(
       "--text-color",
-      darkMode ? "#242424" : "#fff"
+      !darkMode ? "#242424" : "#fff"
     );
     document.documentElement.style.setProperty(
       "--card-color",
-      darkMode ? "#f5f5f5" : "#242424"
+      !darkMode ? "#f5f5f5" : "#242424"
     );
 }, [darkMode]);
 
@@ -56,8 +56,9 @@ useEffect(() => {
 }, [colorIndex]);
 
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    localStorage.setItem("darkMode", JSON.stringify(!darkMode));
+    const mode = !darkMode;
+    setDarkMode(mode);
+    localStorage.setItem("darkMode", JSON.stringify(mode));
   };
 
   const toggleColor = () => {
