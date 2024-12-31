@@ -10,16 +10,25 @@ function Projects() {
 
   const Portfolio = () => {
     return (
-      <div className="portfolio" style={{ display: currentIndex === 0 ? "flex" : "none" }}>
-        <img src="/folio.png" alt="portfolio" width="85%"/>
-        <p>A React app showcasing my work, including a dynamic CSS grid layout and interactive designs. Built with Vite and hosted via Github Pages.</p>
+      <div className="portfolio">
+        <img src="/folio.png" alt="portfolio" />
+        <p>A web portfolio showcasing my work, including a dynamic CSS grid layout and interactive designs. Built with React and Vite.</p>
+      </div>
+    );
+  };
+
+  const Trip = () => {
+    return (
+      <div className="trip">
+        <p>Designed to help users plan their next trip, track expenses, and share with others. Built with React using Next.js.</p>
+        <img src="/trip-planner.jpg" alt="trip planner" />
       </div>
     );
   };
   
   const Bounce = () => {
     return (
-      <div className="bounce" style={{ display: currentIndex === 1 ? "flex" : "none" }}>
+      <div className="bounce">
         <video  src="/bounce_demo.MOV" autoPlay loop playsInline />
         <p> An iOS arcade game built with Swift and published to the App Store featuring monetized ads, leaderboard, and achievements.</p>
       </div>
@@ -28,7 +37,7 @@ function Projects() {
   
   const Loader = () => {
     return (
-      <div className="spinner" style={{ display: currentIndex === 2 ? "flex" : "none" }}>
+      <div className="spinner">
         <FidgetSpinner height={200} width={440} backgroundColor="var(--highlight-color)" ballColors={["var(--text-color)", "var(--text-color)", "var(--text-color)"]}/>
       </div>
     );
@@ -38,6 +47,10 @@ function Projects() {
     {
       title: "This Portfolio",
       project: <Portfolio />,
+    },
+    {
+      title: "Trip Planner",
+      project: <Trip />,
     },
     {
       title: "bounce.",
@@ -57,7 +70,7 @@ function Projects() {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
   };
 
-  const { title } = projects[currentIndex];
+  const { title, project } = projects[currentIndex];
 
   return (
     <Card title="some of my projects" gridArea="projects" minHeight="400px" >
@@ -70,7 +83,7 @@ function Projects() {
           <MdNavigateNext size={32}/>
         </button>
       </div>
-      {projects.map((project) => project.project)}
+      {project}
     </Card>
   );
 }
