@@ -12,7 +12,7 @@ function Projects() {
     return (
       <div className="portfolio">
         <img src="/folio.png" alt="portfolio" />
-        <p>A web portfolio showcasing my work, including a dynamic CSS grid layout and interactive designs. Built with React and Vite.</p>
+        <p>A portfolio made with React showcasing my work, including a dynamic CSS grid layout and interactive designs.</p>
       </div>
     );
   };
@@ -20,7 +20,7 @@ function Projects() {
   const Trip = () => {
     return (
       <div className="trip">
-        <p>Designed to help users plan their next trip, track expenses, and share with others. Built with React using Next.js.</p>
+        <p>Designed to help users plan their next trip, track expenses, and share with others. Built with React and Next.js.</p>
         <img src="/trip-planner.jpg" alt="trip planner" />
       </div>
     );

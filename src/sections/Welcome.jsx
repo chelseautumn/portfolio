@@ -30,7 +30,7 @@ const Welcome = () => {
   return (
     <Card gridArea="welcome" minHeight={"var(--min-welcome-height)"} style={{ position: "relative" }}>
       <h1 className="welcome" onMouseMove={moveMouse}>
-        welcome to {window.innerWidth > 600 && <br/>}my website :)
+        welcome to {window.innerWidth > 464 && <br/>}my website :)
       </h1>
       <span className="type">{text}</span>
     </Card>

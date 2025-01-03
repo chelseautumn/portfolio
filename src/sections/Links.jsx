@@ -14,7 +14,7 @@ function Links() {
             className="resume"
         >
             <button>
-                <h2>see my resume</h2>
+                <h2 className="title">see my resume</h2>
                 <GoArrowUpRight size={24} />
             </button>
       </a>

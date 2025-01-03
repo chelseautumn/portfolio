@@ -60,6 +60,7 @@ function Contact() {
             />
           <button
             type="submit"
+            className="title"
           >
             send
           </button>

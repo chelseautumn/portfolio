@@ -14,7 +14,8 @@ function App() {
   // TODO: animate grid
   
   return (
-    <div className="grid-container">
+    <div className="container" id="scrollbar">
+    <div className="grid">
       <Welcome />
       <AboutMe />
       <Projects />
@@ -24,6 +25,7 @@ function App() {
       <City />
       <Settings /> 
       <Legal />
+    </div>
     </div>
   )
 }
