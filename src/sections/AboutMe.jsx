@@ -4,15 +4,10 @@ import "../styles/AboutMe.css";
 
 function AboutMe() {
 
-  // TODO: show goose
   const [showGoose, setShowGoose] = useState(false);
 
-  const toggleGoose = () => {
-    setShowGoose((prevShowGoose) => !prevShowGoose);
-  };
-
     return (
-      <Card title="about me" gridArea="about" minHeight="400px">
+      <Card title="about me" gridArea="about" minHeight="400px" style={{ position: "relative" }}>
         <div className="about">
           <p>
             Hi! My name is Chelsea, and I'm a software engineer from Chicago.
@@ -21,10 +16,11 @@ function AboutMe() {
             I graduated from UW-Madison with a double major in Computer Science & Data Science in 2023.
             Since then, I've been working mainly as a front-end developer at Caterpillar.
           </p>
-          <p>
-            Aside from coding, I am passionate about traveling, being active, music, and my cat <span onClick={toggleGoose}>Goose.</span>
+          <p className="goose-toggle" onClick={() => setShowGoose(!showGoose)}>
+            Aside from coding, I am passionate about traveling, being active, music, and my cat <span className={`goose-label ${showGoose ? "title" : ""}`}>Goose.</span>
           </p>
         </div>
+        {showGoose && <img src="/goose1.png" alt="goose" className="goose" />}
     </Card>
     )
   }
