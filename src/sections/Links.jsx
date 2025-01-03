@@ -8,7 +8,6 @@ function Links() {
     <Card gridArea="links" minHeight="80px">
       <a
         href="/chelsea-verheyen-resume-2025.pdf"
-        target="_blank"
         rel="noopener noreferrer"
         className="resume"
       >
@@ -20,7 +19,6 @@ function Links() {
       <div className="links">
         <a
           href="https://github.com/chelseautumn/"
-          target="_blank"
           aria-label="github"
           className="icon"
         >
@@ -28,7 +26,6 @@ function Links() {
         </a>
         <a
           href="https://www.linkedin.com/in/chelsea-verheyen/"
-          target="_blank"
           aria-label="linkedin"
           className="icon"
         >

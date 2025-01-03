@@ -15,6 +15,7 @@ function Settings() {
   // TODO: add sound
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [colorIndex, setColorIndex] = useState(5);
+  // TODO: fix this on mobile
   const [happy, setHappy] = useState(false);
 
   const colors = [
