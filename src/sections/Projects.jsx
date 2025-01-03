@@ -11,7 +11,7 @@ function Projects() {
   const Portfolio = () => {
     return (
       <div className="portfolio">
-        <img src="/folio.png" alt="portfolio" />
+        <img src="/folio.webp" alt="portfolio" />
         <p>A portfolio made with React showcasing my work, including a dynamic CSS grid layout and interactive designs.</p>
       </div>
     );
@@ -21,7 +21,7 @@ function Projects() {
     return (
       <div className="trip">
         <p>Designed to help users plan their next trip, track expenses, and share with others. Built with React and Next.js.</p>
-        <img src="/trip-planner.jpg" alt="trip planner" />
+        <img src="/trip-planner.webp" alt="trip planner" />
       </div>
     );
   };
@@ -29,7 +29,7 @@ function Projects() {
   const Bounce = () => {
     return (
       <div className="bounce">
-        <video  src="/bounce_demo.MOV" autoPlay loop playsInline />
+        <video  src="/bounce_demo.mp4" muted autoPlay loop playsInline />
         <p> An iOS arcade game built with Swift and published to the App Store featuring monetized ads, leaderboard, and achievements.</p>
       </div>
     );
