@@ -7,27 +7,26 @@ import Settings from "./sections/Settings";
 import Links from "./sections/Links";
 import Skills from "./sections/Skills";
 import Legal from "./sections/Legal";
-import './App.css';
+import "./App.css";
 
 function App() {
-
   // TODO: animate grid
-  
+
   return (
     <div className="container" id="scrollbar">
-    <div className="grid">
-      <Welcome />
-      <AboutMe />
-      <Projects />
-      <Skills />
-      <Links />
-      <Contact />
-      <City />
-      <Settings /> 
-      <Legal />
+      <div className="grid">
+        <Welcome />
+        <AboutMe />
+        <Projects />
+        <Skills />
+        <Links />
+        <Contact />
+        <City />
+        <Settings />
+        <Legal />
+      </div>
     </div>
-    </div>
-  )
+  );
 }
 
 export default App;

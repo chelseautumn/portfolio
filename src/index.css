@@ -1,15 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=block");
 
 :root {
-  font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family:
+    "Proxima Nova",
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Fira Sans,
+    Droid Sans,
+    Helvetica Neue,
+    sans-serif;
   /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   line-height: 1.5;
   font-weight: 400;
 
   --background-color: #1e1e1e;
   --text-color: #fff;
-  --highlight-color: #2C98FF;
+  --highlight-color: #2c98ff;
   --card-color: #242424;
   --x: 8px;
   --y: 8px;
@@ -17,10 +28,12 @@
   background-color: var(--background-color);
   color: var(--text-color);
   /* transition: background-color 0.2s, color 0.2s; */
-  cursor:default;
+  cursor: default;
 }
 
-.root, body, html {
+.root,
+body,
+html {
   height: 100%;
   width: 100%;
   margin: 0;

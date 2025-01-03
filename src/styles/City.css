@@ -1,23 +1,25 @@
 .city {
-    width: 100%;
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    h3 {
-      margin: 0;
-      font-size: 24px;
-    }
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h3 {
+    margin: 0;
+    font-size: 24px;
   }
-  
-  .button {
-    transition: transform 0.2s ease, color 0.2s ease;
-    &:hover {
-      cursor: pointer;
-      color: var(--highlight-color);
-      transform: scale(1.1);
-    }
+}
+
+.button {
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+  &:hover {
+    cursor: pointer;
+    color: var(--highlight-color);
+    transform: scale(1.1);
   }
-  
-  .stats {
-    text-align: end;
-  }
+}
+
+.stats {
+  text-align: end;
+}

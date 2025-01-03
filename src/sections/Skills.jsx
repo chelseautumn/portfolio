@@ -1,12 +1,18 @@
 import Card from "../components/Card.jsx";
 import "../styles/Skills.css";
-import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaPython, FaJava, FaAws } from "react-icons/fa";
+import {
+  FaReact,
+  FaNodeJs,
+  FaHtml5,
+  FaCss3Alt,
+  FaPython,
+  FaJava,
+  FaAws,
+} from "react-icons/fa";
 import { SiTypescript, SiJavascript, SiSwift } from "react-icons/si";
 import { useState } from "react";
 
-
 function Skills() {
-
   const [hoveredSkill, setHoveredSkill] = useState("");
   const iconSize = 32;
   const skills = [
@@ -22,28 +28,38 @@ function Skills() {
     { icon: <FaAws size={iconSize} />, label: "AWS" },
   ];
 
-    return (
-      <Card title="some of my skills" gridArea="skills" minHeight="72px">
-        <div className="skills-row">
-          {skills.map((skill, index) => (
-            <div onMouseLeave={() => setHoveredSkill("")} onMouseEnter={() => setHoveredSkill(skill.label)} key={index} className="icon skills-item">
-              {skill.icon}
-              {hoveredSkill === skill.label && (
+  return (
+    <Card title="some of my skills" gridArea="skills" minHeight="72px">
+      <div className="skills-row">
+        {skills.map((skill, index) => (
+          <div
+            onMouseLeave={() => setHoveredSkill("")}
+            onMouseEnter={() => setHoveredSkill(skill.label)}
+            key={index}
+            className="icon skills-item"
+          >
+            {skill.icon}
+            {hoveredSkill === skill.label && (
               <div className="tooltip">{hoveredSkill}</div>
             )}
-            </div>
-          ))}
-           {skills.map((skill, index) => (
-            <div onMouseLeave={() => setHoveredSkill("")} onMouseEnter={() => setHoveredSkill(skill.label)} key={index} className="icon skills-item">
-              {skill.icon}
-              {hoveredSkill === skill.label && (
+          </div>
+        ))}
+        {skills.map((skill, index) => (
+          <div
+            onMouseLeave={() => setHoveredSkill("")}
+            onMouseEnter={() => setHoveredSkill(skill.label)}
+            key={index}
+            className="icon skills-item"
+          >
+            {skill.icon}
+            {hoveredSkill === skill.label && (
               <div className="tooltip">{hoveredSkill}</div>
             )}
-            </div>
-          ))}
-        </div>
-      </Card>
-    )
-  }
-  
-  export default Skills;
+          </div>
+        ))}
+      </div>
+    </Card>
+  );
+}
+
+export default Skills;

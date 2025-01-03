@@ -23,10 +23,7 @@ const getContainer = () => {
 
 let instanceCounter = 0;
 
-const applyParticleEffect = (
-  element,
-  options
-) => {
+const applyParticleEffect = (element, options) => {
   instanceCounter++;
 
   const defaultParticle = "circle";
@@ -61,11 +58,7 @@ const applyParticleEffect = (
       circle.setAttributeNS(null, "cx", (size / 2).toString());
       circle.setAttributeNS(null, "cy", (size / 2).toString());
       circle.setAttributeNS(null, "r", (size / 2).toString());
-      circle.setAttributeNS(
-        null,
-        "fill",
-        `var(--highlight-color)`,
-      );
+      circle.setAttributeNS(null, "fill", `var(--highlight-color)`);
 
       circleSVG.appendChild(circle);
       circleSVG.setAttribute("width", size.toString());
@@ -194,7 +187,6 @@ const applyParticleEffect = (
     }, 500);
   };
 };
-
 
 export const CoolMode = ({ children, options }) => {
   const ref = useRef(null);

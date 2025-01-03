@@ -1,25 +1,28 @@
 .welcome {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: var(--text-color);
-    font-size: 64px;
-    line-height: 64px;
-    margin: 0;
-    padding: 0;
-    text-shadow: calc(var(--x) * 3) calc(var(--y) * 3) 0px rgb(from var(--highlight-color) r g b / 0.1),
-    calc(var(--x) * 2) calc(var(--y) * 2) 0px rgb(from var(--highlight-color) r g b / 0.5),
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--text-color);
+  font-size: 64px;
+  line-height: 64px;
+  margin: 0;
+  padding: 0;
+  text-shadow:
+    calc(var(--x) * 3) calc(var(--y) * 3) 0px
+      rgb(from var(--highlight-color) r g b / 0.1),
+    calc(var(--x) * 2) calc(var(--y) * 2) 0px
+      rgb(from var(--highlight-color) r g b / 0.5),
     var(--x) var(--y) 0px var(--highlight-color);
-    z-index: 1;
-  }
+  z-index: 1;
+}
 
-    /* TODO: add cursor animation */
+/* TODO: add cursor animation */
 .type {
-    z-index: 0;
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    color:rgb(from var(--highlight-color) r g b / 0.25);
+  z-index: 0;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  color: rgb(from var(--highlight-color) r g b / 0.25);
 }

@@ -6,7 +6,6 @@ import { useState } from "react";
 const Game = () => {
   const [playing, setPlaying] = useState(false);
 
-
   return (
     <Card gridArea="game" minHeight="120px">
       <div className="game">
@@ -14,8 +13,7 @@ const Game = () => {
           <FaPlay onClick={() => setPlaying(true)} className="play" size={64} />
         ) : (
           <div>need to do something here</div>
-          )}
-        
+        )}
       </div>
     </Card>
   );

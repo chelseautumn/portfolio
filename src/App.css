@@ -3,13 +3,14 @@
   background-color: transparent;
   color: var(--text-color);
   cursor: pointer;
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
   &:hover {
     transform: scale(1.2);
     color: var(--highlight-color);
   }
 }
-
 
 .container {
   height: 100%;
@@ -31,7 +32,7 @@
 
 #scrollbar::-webkit-scrollbar-thumb {
   border-radius: 8px;
- background-clip: content-box;
+  background-clip: content-box;
   background-color: var(--highlight-color);
 }
 .grid {
@@ -56,12 +57,12 @@
   .grid {
     max-height: 100%;
     grid-template-areas:
-    "welcome welcome"
-    "about projects"
-    "contact skills"
-    "contact links"
-    "contact chicago"
-    "legal settings";
+      "welcome welcome"
+      "about projects"
+      "contact skills"
+      "contact links"
+      "contact chicago"
+      "legal settings";
     --min-welcome-height: 150px;
   }
 }

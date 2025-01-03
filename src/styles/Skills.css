@@ -1,43 +1,45 @@
-  .skills-row {
-    white-space: nowrap;
-    display: inline-block;
-    animation: marquee 20s linear infinite;
-  }
-  
-  .skills-item {
-    padding: 0 12px;
-    display: inline-block;
-    position: relative;
-  }
-  
-  @keyframes marquee {
-    0% {
-      transform: translate3d(0, 0, 0);
-    }
-    100% {
-      transform: translate3d(-50%, 0, 0);
-    }
-  }
+.skills-row {
+  white-space: nowrap;
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+}
 
-    /* TODO: fix styling */
-  .tooltip {
-    position: absolute;
-    bottom: 100%; /* Position above the icon */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: #fff;
-    padding: 6px 10px;
-    border-radius: 4px;
-    font-size: 12px;
-    white-space: nowrap;
-    pointer-events: none;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s, visibility 0.2s;
-  }
+.skills-item {
+  padding: 0 12px;
+  display: inline-block;
+  position: relative;
+}
 
-  .skills-item:hover .tooltip {
-    opacity: 1;
-    visibility: visible;
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
   }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* TODO: fix styling */
+.tooltip {
+  position: absolute;
+  bottom: 100%; /* Position above the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s,
+    visibility 0.2s;
+}
+
+.skills-item:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}

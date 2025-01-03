@@ -1,32 +1,36 @@
 .about {
-    height: calc(100% - 48px);
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    z-index: 1;
+  height: calc(100% - 48px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 1;
 }
 
 .goose-toggle {
-    &:hover, &:focus, &:active {
-        cursor: pointer;
-    }
+  &:hover,
+  &:focus,
+  &:active {
+    cursor: pointer;
+  }
 }
 
 .goose-label {
-    transition: color 0.2s ease, transform 0.2s ease;
-    &:hover {
-        color: var(--highlight-color);
-        cursor: pointer;
-        transform: scale(1.2);
-    }
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+  &:hover {
+    color: var(--highlight-color);
+    cursor: pointer;
+    transform: scale(1.2);
+  }
 }
 
 .goose {
-    z-index: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    color:rgb(from var(--highlight-color) r g b / 0.25);
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  color: rgb(from var(--highlight-color) r g b / 0.25);
 }
