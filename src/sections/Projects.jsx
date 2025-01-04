@@ -3,6 +3,7 @@ import Card from "../components/Card.jsx";
 import "../styles/Projects.css";
 import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
 import { FidgetSpinner } from "react-loader-spinner";
+import { GoArrowUpRight } from "react-icons/go";
 
 function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -23,13 +24,13 @@ function Projects() {
 
   const Trip = () => {
     return (
-      <div className="trip">
+      <a className="trip" href="https://travel.chlsea.com">
         <p>
-          Designed to help users plan their next trip, track expenses, and share
-          with others. Built with React and Next.js.
+          Designed to help users create and manage itineraries, track expenses,
+          and share with others. Built with Next.js.
         </p>
         <img src="/trip-planner.webp" alt="trip planner" />
-      </div>
+      </a>
     );
   };
 
@@ -69,7 +70,7 @@ function Projects() {
       project: <Portfolio />,
     },
     {
-      title: "Trip Planner",
+      title: "PlanIt - Trip Planner",
       project: <Trip />,
     },
     {
