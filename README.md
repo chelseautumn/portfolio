@@ -40,7 +40,6 @@ $ npm start
 ## TO DO
 
 - fix smiley button on mobile
-- add grid transition on page load
 - add sound
 - add transition to cat picture
 - add interactive background for desktop

@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import Welcome from "./sections/Welcome";
 import AboutMe from "./sections/AboutMe";
 import Contact from "./sections/Contact";
@@ -10,17 +11,37 @@ import Legal from "./sections/Legal";
 import "./App.css";
 
 function App() {
-  // TODO: animate grid
+  const gridRef = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.1 }, // Trigger when 10% of the element is visible
+    );
+
+    const gridItems = gridRef.current.querySelectorAll(".grid > *");
+    gridItems.forEach((item) => observer.observe(item));
+
+    return () => {
+      gridItems.forEach((item) => observer.unobserve(item));
+    };
+  }, []);
 
   return (
     <div className="container" id="scrollbar">
-      <div className="grid">
+      <div className="grid" ref={gridRef}>
         <Welcome />
         <AboutMe />
         <Projects />
-        <Skills />
         <Links />
         <Contact />
+        <Skills />
         <City />
         <Settings />
         <Legal />
