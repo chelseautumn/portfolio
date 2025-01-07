@@ -6,17 +6,19 @@ import {
   IoIosColorPalette,
   IoIosVolumeHigh,
   IoIosVolumeOff,
+  IoIosBrush,
 } from "react-icons/io";
 import { CgSmile, CgSmileMouthOpen } from "react-icons/cg";
 import { CoolMode } from "../components/CoolMode.jsx";
 
-function Settings() {
+function Settings({ isDrawing, setIsDrawing }) {
   const [darkMode, setDarkMode] = useState(true);
   // TODO: add sound
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [colorIndex, setColorIndex] = useState(5);
   // TODO: fix this on mobile
   const [happy, setHappy] = useState(false);
+  const [hasBrush, setHasBrush] = useState(true);
 
   const colors = [
     "#FF3359", // red
@@ -27,6 +29,18 @@ function Settings() {
     "#952CFF", // purple
   ];
 
+  const toggleDarkMode = () => {
+    const mode = !darkMode;
+    setDarkMode(mode);
+    localStorage.setItem("darkMode", JSON.stringify(mode));
+  };
+
+  const toggleColor = () => {
+    const index = (colorIndex + 1) % colors.length;
+    setColorIndex(index);
+    localStorage.setItem("colorIndex", JSON.stringify(index));
+  };
+
   // Load settings from localStorage on mount
   useEffect(() => {
     const savedDarkMode = JSON.parse(localStorage.getItem("darkMode"));
@@ -36,6 +50,16 @@ function Settings() {
     if (savedDarkMode !== null) setDarkMode(savedDarkMode);
     if (savedSoundEnabled !== null) setSoundEnabled(savedSoundEnabled);
     if (savedColorIndex !== null) setColorIndex(savedColorIndex);
+
+    const updateBrushState = () => {
+      setHasBrush(window.innerWidth > 800);
+    };
+    updateBrushState();
+    window.addEventListener("resize", updateBrushState);
+
+    return () => {
+      window.removeEventListener("resize", updateBrushState);
+    };
   }, []);
 
   useEffect(() => {
@@ -59,18 +83,6 @@ function Settings() {
       colors[colorIndex],
     );
   }, [colorIndex]);
-
-  const toggleDarkMode = () => {
-    const mode = !darkMode;
-    setDarkMode(mode);
-    localStorage.setItem("darkMode", JSON.stringify(mode));
-  };
-
-  const toggleColor = () => {
-    const index = (colorIndex + 1) % colors.length;
-    setColorIndex(index);
-    localStorage.setItem("colorIndex", JSON.stringify(index));
-  };
 
   return (
     <Card gridArea="settings" minHeight="24px">
@@ -112,6 +124,16 @@ function Settings() {
             <IoIosVolumeOff size={32} />
           )}
         </button>
+        {hasBrush && (
+          <button
+            onClick={() => setIsDrawing((prev) => !prev)}
+            aria-label="Use Brush"
+            className="icon"
+          >
+            {!isDrawing && <IoIosBrush size={32} />}
+            {isDrawing && <div style={{ width: "32px", height: "32px" }} />}
+          </button>
+        )}
       </div>
     </Card>
   );

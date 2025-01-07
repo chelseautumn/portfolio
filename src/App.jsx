@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Welcome from "./sections/Welcome";
 import AboutMe from "./sections/AboutMe";
 import Contact from "./sections/Contact";
@@ -13,6 +13,7 @@ import "./App.css";
 
 function App() {
   const gridRef = useRef();
+  const [isDrawing, setIsDrawing] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,7 +37,7 @@ function App() {
 
   return (
     <div className="container" id="scrollbar">
-      <Background />
+      <Background isDisabled={!isDrawing} />
       <div className="grid" ref={gridRef}>
         <Welcome />
         <AboutMe />
@@ -45,7 +46,7 @@ function App() {
         <Contact />
         <Skills />
         <City />
-        <Settings />
+        <Settings isDrawing={isDrawing} setIsDrawing={setIsDrawing} />
         <Legal />
       </div>
     </div>

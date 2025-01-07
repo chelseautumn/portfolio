@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import "../styles/Background.css";
 
-function Background() {
+function Background({ isDisabled }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -38,16 +38,18 @@ function Background() {
 
     setCanvasSize();
 
-    canvas.addEventListener("mousemove", draw);
-    canvas.addEventListener("click", clearCanvas);
-    window.addEventListener("resize", setCanvasSize);
+    if (!isDisabled) {
+      canvas.addEventListener("mousemove", draw);
+      canvas.addEventListener("click", clearCanvas);
+      window.addEventListener("resize", setCanvasSize);
+    }
 
     return () => {
       canvas.removeEventListener("mousemove", draw);
       canvas.removeEventListener("click", clearCanvas);
       window.removeEventListener("resize", setCanvasSize);
     };
-  }, []);
+  }, [isDisabled]);
 
   return <canvas ref={canvasRef} className="background-canvas" />;
 }

@@ -11,9 +11,7 @@ function Projects() {
   const Portfolio = () => {
     return (
       <div className="portfolio">
-        <a href="https://github.com/chelseautumn/portfolio">
-          <img src="/folio.webp" alt="portfolio" />
-        </a>
+        <img src="/folio2.webp" alt="portfolio" />
         <p>
           A portfolio made with React showcasing my work, including a dynamic
           CSS grid layout and interactive designs.
