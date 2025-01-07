@@ -42,4 +42,3 @@ $ npm start
 - fix smiley button on mobile
 - add sound
 - add transition to cat picture
-- add interactive background for desktop

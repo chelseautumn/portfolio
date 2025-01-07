@@ -8,6 +8,7 @@ import Settings from "./sections/Settings";
 import Links from "./sections/Links";
 import Skills from "./sections/Skills";
 import Legal from "./sections/Legal";
+import Background from "./components/Background";
 import "./App.css";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
 
   return (
     <div className="container" id="scrollbar">
+      <Background />
       <div className="grid" ref={gridRef}>
         <Welcome />
         <AboutMe />
