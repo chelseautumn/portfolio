@@ -17,7 +17,7 @@
   }
 
   img {
-    max-width: 340px;
+    max-width: 300px;
   }
 }
 
@@ -41,15 +41,18 @@
 .bounce {
   display: flex;
   width: 100%;
+  justify-content: space-between;
+  align-items: center;
 
   video {
-    width: 100%;
+    width: 50%;
     max-height: 300px;
     padding: 2px 8px;
   }
 
   p {
-    padding: 2px 4px 2px 0px;
+    font-size: 18px;
+    width: 50%;
   }
 }
 

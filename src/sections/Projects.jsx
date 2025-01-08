@@ -24,8 +24,8 @@ function Projects() {
     return (
       <a className="trip" href="https://travel.chlsea.com">
         <p>
-          Designed to help users create and manage itineraries, track expenses,
-          and share with others. Built with Next.js.
+          Designed to help create & manage itineraries, track expenses, & share
+          with others. Built with Next.js.
         </p>
         <img src="/trip-planner.webp" alt="trip planner" />
       </a>
@@ -39,7 +39,7 @@ function Projects() {
         <p>
           {" "}
           An iOS arcade game built with Swift and published to the App Store
-          featuring monetized ads, leaderboard, and achievements.
+          featuring a leaderboard, achievements, and monetized ads.
         </p>
       </div>
     );
