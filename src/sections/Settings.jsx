@@ -51,15 +51,15 @@ function Settings({ isDrawing, setIsDrawing }) {
     if (savedSoundEnabled !== null) setSoundEnabled(savedSoundEnabled);
     if (savedColorIndex !== null) setColorIndex(savedColorIndex);
 
-    const updateBrushState = () => {
-      setHasBrush(window.innerWidth > 800);
-    };
-    updateBrushState();
-    window.addEventListener("resize", updateBrushState);
+    // const updateBrushState = () => {
+    //   setHasBrush(window.innerWidth > 800);
+    // };
+    // updateBrushState();
+    // window.addEventListener("resize", updateBrushState);
 
-    return () => {
-      window.removeEventListener("resize", updateBrushState);
-    };
+    // return () => {
+    //   window.removeEventListener("resize", updateBrushState);
+    // };
   }, []);
 
   useEffect(() => {
