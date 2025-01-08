@@ -31,18 +31,18 @@ function Background({ isDisabled }) {
       ).getPropertyValue("--highlight-color");
       ctx.fill();
     };
-    
+
     const drawTouch = (e) => {
-        e.preventDefault();
-        const curX = e.targetTouches[0].pageX;
-        const curY = e.targetTouches[0].pageY;
-        ctx.beginPath();
-        ctx.arc(curX, curY, 20, 0, Math.PI * 2);
-        ctx.fillStyle = getComputedStyle(
-          document.documentElement,
-        ).getPropertyValue("--highlight-color");
-        ctx.fill();
-    }
+      e.preventDefault();
+      const curX = e.targetTouches[0].pageX;
+      const curY = e.targetTouches[0].pageY;
+      ctx.beginPath();
+      ctx.arc(curX, curY, 20, 0, Math.PI * 2);
+      ctx.fillStyle = getComputedStyle(
+        document.documentElement,
+      ).getPropertyValue("--highlight-color");
+      ctx.fill();
+    };
 
     const clearCanvas = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -67,7 +67,13 @@ function Background({ isDisabled }) {
     };
   }, [isDisabled]);
 
-  return <canvas ref={canvasRef} className="background-canvas" style={{ pointerEvents: isDisabled ? "none" : "auto" }} />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="background-canvas"
+      style={{ pointerEvents: isDisabled ? "none" : "auto" }}
+    />
+  );
 }
 
 export default Background;

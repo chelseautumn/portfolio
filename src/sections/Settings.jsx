@@ -2,19 +2,12 @@ import Card from "../components/Card.jsx";
 import "../styles/Settings.css";
 import { useState, useEffect } from "react";
 import { CiLight, CiDark } from "react-icons/ci";
-import {
-  IoIosColorPalette,
-  IoIosVolumeHigh,
-  IoIosVolumeOff,
-  IoIosBrush,
-} from "react-icons/io";
+import { IoIosColorPalette, IoIosBrush } from "react-icons/io";
 import { CgSmile, CgSmileMouthOpen } from "react-icons/cg";
 import { CoolMode } from "../components/CoolMode.jsx";
 
 function Settings({ isDrawing, setIsDrawing }) {
   const [darkMode, setDarkMode] = useState(true);
-  // TODO: add sound
-  //const [soundEnabled, setSoundEnabled] = useState(true);
   const [colorIndex, setColorIndex] = useState(5);
   // TODO: fix this on mobile
   const [happy, setHappy] = useState(false);
@@ -43,13 +36,10 @@ function Settings({ isDrawing, setIsDrawing }) {
   // Load settings from localStorage on mount
   useEffect(() => {
     const savedDarkMode = JSON.parse(localStorage.getItem("darkMode"));
-    //const savedSoundEnabled = JSON.parse(localStorage.getItem("soundEnabled"));
     const savedColorIndex = JSON.parse(localStorage.getItem("colorIndex"));
 
     if (savedDarkMode !== null) setDarkMode(savedDarkMode);
-    //if (savedSoundEnabled !== null) setSoundEnabled(savedSoundEnabled);
     if (savedColorIndex !== null) setColorIndex(savedColorIndex);
-
   }, []);
 
   useEffect(() => {
@@ -103,25 +93,14 @@ function Settings({ isDrawing, setIsDrawing }) {
             {happy ? <CgSmileMouthOpen size={32} /> : <CgSmile size={32} />}
           </button>
         </CoolMode>
-        {/* <button
-          onClick={() => setSoundEnabled((prev) => !prev)}
-          aria-label="Toggle Sound"
+        <button
+          onClick={() => setIsDrawing((prev) => !prev)}
+          aria-label="Use Brush"
           className="icon"
         >
-          {soundEnabled ? (
-            <IoIosVolumeHigh size={32} />
-          ) : (
-            <IoIosVolumeOff size={32} />
-          )}
-        </button> */}
-          <button
-            onClick={() => setIsDrawing((prev) => !prev)}
-            aria-label="Use Brush"
-            className="icon"
-          >
-            {!isDrawing && <IoIosBrush size={32} />}
-            {isDrawing && <div style={{ width: "32px", height: "32px" }} />}
-          </button>
+          {!isDrawing && <IoIosBrush size={32} />}
+          {isDrawing && <div style={{ width: "32px", height: "32px" }} />}
+        </button>
       </div>
     </Card>
   );
