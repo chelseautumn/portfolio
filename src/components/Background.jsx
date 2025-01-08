@@ -51,7 +51,7 @@ function Background({ isDisabled }) {
     };
   }, [isDisabled]);
 
-  return <canvas ref={canvasRef} className="background-canvas" />;
+  return <canvas ref={canvasRef} className="background-canvas" style={{ pointerEvents: isDisabled ? "none" : "auto" }} />;
 }
 
 export default Background;
