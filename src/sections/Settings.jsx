@@ -14,11 +14,10 @@ import { CoolMode } from "../components/CoolMode.jsx";
 function Settings({ isDrawing, setIsDrawing }) {
   const [darkMode, setDarkMode] = useState(true);
   // TODO: add sound
-  const [soundEnabled, setSoundEnabled] = useState(true);
+  //const [soundEnabled, setSoundEnabled] = useState(true);
   const [colorIndex, setColorIndex] = useState(5);
   // TODO: fix this on mobile
   const [happy, setHappy] = useState(false);
-  const [hasBrush, setHasBrush] = useState(true);
 
   const colors = [
     "#FF3359", // red
@@ -44,22 +43,13 @@ function Settings({ isDrawing, setIsDrawing }) {
   // Load settings from localStorage on mount
   useEffect(() => {
     const savedDarkMode = JSON.parse(localStorage.getItem("darkMode"));
-    const savedSoundEnabled = JSON.parse(localStorage.getItem("soundEnabled"));
+    //const savedSoundEnabled = JSON.parse(localStorage.getItem("soundEnabled"));
     const savedColorIndex = JSON.parse(localStorage.getItem("colorIndex"));
 
     if (savedDarkMode !== null) setDarkMode(savedDarkMode);
-    if (savedSoundEnabled !== null) setSoundEnabled(savedSoundEnabled);
+    //if (savedSoundEnabled !== null) setSoundEnabled(savedSoundEnabled);
     if (savedColorIndex !== null) setColorIndex(savedColorIndex);
 
-    // const updateBrushState = () => {
-    //   setHasBrush(window.innerWidth > 800);
-    // };
-    // updateBrushState();
-    // window.addEventListener("resize", updateBrushState);
-
-    // return () => {
-    //   window.removeEventListener("resize", updateBrushState);
-    // };
   }, []);
 
   useEffect(() => {
@@ -113,7 +103,7 @@ function Settings({ isDrawing, setIsDrawing }) {
             {happy ? <CgSmileMouthOpen size={32} /> : <CgSmile size={32} />}
           </button>
         </CoolMode>
-        <button
+        {/* <button
           onClick={() => setSoundEnabled((prev) => !prev)}
           aria-label="Toggle Sound"
           className="icon"
@@ -123,8 +113,7 @@ function Settings({ isDrawing, setIsDrawing }) {
           ) : (
             <IoIosVolumeOff size={32} />
           )}
-        </button>
-        {hasBrush && (
+        </button> */}
           <button
             onClick={() => setIsDrawing((prev) => !prev)}
             aria-label="Use Brush"
@@ -133,7 +122,6 @@ function Settings({ isDrawing, setIsDrawing }) {
             {!isDrawing && <IoIosBrush size={32} />}
             {isDrawing && <div style={{ width: "32px", height: "32px" }} />}
           </button>
-        )}
       </div>
     </Card>
   );

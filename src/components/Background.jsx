@@ -31,6 +31,18 @@ function Background({ isDisabled }) {
       ).getPropertyValue("--highlight-color");
       ctx.fill();
     };
+    
+    const drawTouch = (e) => {
+        e.preventDefault();
+        const curX = e.targetTouches[0].pageX;
+        const curY = e.targetTouches[0].pageY;
+        ctx.beginPath();
+        ctx.arc(curX, curY, 20, 0, Math.PI * 2);
+        ctx.fillStyle = getComputedStyle(
+          document.documentElement,
+        ).getPropertyValue("--highlight-color");
+        ctx.fill();
+    }
 
     const clearCanvas = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -39,13 +51,17 @@ function Background({ isDisabled }) {
     setCanvasSize();
 
     if (!isDisabled) {
-      canvas.addEventListener("mousemove", draw);
-      canvas.addEventListener("click", clearCanvas);
       window.addEventListener("resize", setCanvasSize);
+      canvas.addEventListener("mousemove", draw);
+      canvas.addEventListener("touchmove", drawTouch);
+      if (window.innerWidth > 800) {
+        canvas.addEventListener("click", clearCanvas);
+      }
     }
 
     return () => {
       canvas.removeEventListener("mousemove", draw);
+      canvas.removeEventListener("touchmove", drawTouch);
       canvas.removeEventListener("click", clearCanvas);
       window.removeEventListener("resize", setCanvasSize);
     };
