@@ -27,7 +27,11 @@ function AboutMe() {
           </span>
         </p>
       </div>
-      {showGoose && <img src="/goose1.png" alt="goose" className="goose" />}
+      <img
+        src="/goose1.png"
+        alt="goose"
+        className={`goose ${showGoose ? "visible" : ""}`}
+      />
     </Card>
   );
 }

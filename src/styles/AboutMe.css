@@ -33,4 +33,10 @@
   height: 100%;
   width: 100%;
   color: rgb(from var(--highlight-color) r g b / 0.25);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.visible {
+  opacity: 1;
 }

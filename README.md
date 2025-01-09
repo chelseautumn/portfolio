@@ -41,4 +41,3 @@ $ npm start
 ## TO DO
 
 - fix smiley button on mobile
-- add transition to cat picture
