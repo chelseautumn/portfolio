@@ -44,9 +44,9 @@ function Background({ isDisabled }) {
       ctx.fill();
     };
 
-    const clearCanvas = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-    };
+    // const clearCanvas = () => {
+    //   ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // };
 
     setCanvasSize();
 
@@ -54,15 +54,15 @@ function Background({ isDisabled }) {
       window.addEventListener("resize", setCanvasSize);
       canvas.addEventListener("mousemove", draw);
       canvas.addEventListener("touchmove", drawTouch);
-      if (window.innerWidth > 800) {
-        canvas.addEventListener("click", clearCanvas);
-      }
+    //   if (window.innerWidth > 800) {
+    //     canvas.addEventListener("click", clearCanvas);
+    //   }
     }
 
     return () => {
       canvas.removeEventListener("mousemove", draw);
       canvas.removeEventListener("touchmove", drawTouch);
-      canvas.removeEventListener("click", clearCanvas);
+      //canvas.removeEventListener("click", clearCanvas);
       window.removeEventListener("resize", setCanvasSize);
     };
   }, [isDisabled]);
