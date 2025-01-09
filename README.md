@@ -10,7 +10,8 @@ You can view it **[here](https://chlsea.com)**.
 
 - Modern and responsive grid layout.
 - Animations created with CSS and JavaScript.
-- User preference settings stored locally.
+- Interactive background canvas with paintbrush.
+- User preference settings for colors stored locally.
 - External links to my GitHub, LinkedIn, email, and resume.
 - Contact form integrated with `emailjs`.
 - Weather integrated with `OpenWeatherMap`.

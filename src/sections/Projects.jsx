@@ -39,7 +39,7 @@ function Projects() {
         <p>
           {" "}
           An iOS arcade game built with Swift and published to the App Store
-          featuring a leaderboard, achievements, and monetized ads.
+          featuring a leaderboard, achievements, and ads.
         </p>
       </div>
     );
@@ -49,8 +49,6 @@ function Projects() {
     return (
       <div className="spinner">
         <FidgetSpinner
-          height={200}
-          width={440}
           backgroundColor="var(--highlight-color)"
           ballColors={[
             "var(--text-color)",
@@ -63,22 +61,10 @@ function Projects() {
   };
 
   const projects = [
-    {
-      title: "This Portfolio",
-      project: <Portfolio />,
-    },
-    {
-      title: "PlanIt - Trip Planner",
-      project: <Trip />,
-    },
-    {
-      title: "bounce.",
-      project: <Bounce />,
-    },
-    {
-      title: "work in progress",
-      project: <Loader />,
-    },
+    { title: "This Portfolio", project: <Portfolio /> },
+    { title: "PlanIt - Trip Planner", project: <Trip /> },
+    { title: "bounce.", project: <Bounce /> },
+    { title: "work in progress", project: <Loader /> },
   ];
 
   const nextProject = () => {
@@ -95,16 +81,30 @@ function Projects() {
 
   return (
     <Card title="some of my projects" gridArea="projects" minHeight="400px">
-      <div className="project-controls">
-        <button onClick={prevProject} className="icon">
+      <div className="carousel-container">
+        <button onClick={prevProject} className="icon navigate">
           <MdNavigateBefore size={32} />
         </button>
-        <h3 className="title">{title}</h3>
-        <button onClick={nextProject} className="icon">
+        <div className="carousel">
+          <div
+            className="carousel-inner"
+            style={{
+              transform: `translateX(-${currentIndex * 100}%)`,
+              transition: "transform 0.5s ease-in-out",
+            }}
+          >
+            {projects.map(({ title, project }, index) => (
+              <div key={index} className="carousel-item">
+                <h3 className="title">{title}</h3>
+                {project}
+              </div>
+            ))}
+          </div>
+        </div>
+        <button onClick={nextProject} className="icon navigate">
           <MdNavigateNext size={32} />
         </button>
       </div>
-      {project}
     </Card>
   );
 }
